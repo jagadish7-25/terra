@@ -1,5 +1,5 @@
-resource "aws_security_group" "allow_all" {
-  name        = "allow_tls"
+resource "aws_security_group" "allow-ssh" {
+  name        = "allow-ssh"
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = aws_vpc.main.id
 
@@ -8,7 +8,7 @@ resource "aws_security_group" "allow_all" {
   }
 }
 
-resource "aws_security_group" "all-sshh" {
+resource "aws_security_group" "allow-ssh" {
   # ... other configuration ...
 
   egress {
@@ -20,7 +20,7 @@ resource "aws_security_group" "all-sshh" {
   }
 }
 
-resource "aws_security_group" "all-sshh" {
+resource "aws_security_group" "allow-ssh" {
   # ... other configuration ...
 
   ingress {
