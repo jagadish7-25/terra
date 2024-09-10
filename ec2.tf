@@ -8,7 +8,7 @@ resource "aws_security_group" "allow_all" {
   }
 }
 
-resource "aws_security_group" "allow_all" {
+resource "aws_security_group" "all-sshh" {
   # ... other configuration ...
 
   egress {
@@ -20,7 +20,7 @@ resource "aws_security_group" "allow_all" {
   }
 }
 
-resource "aws_security_group" "allow_all" {
+resource "aws_security_group" "all-sshh" {
   # ... other configuration ...
 
   ingress {
