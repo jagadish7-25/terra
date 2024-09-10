@@ -4,7 +4,7 @@ resource "aws_security_group" "allow_all" {
   vpc_id      = aws_vpc.main.id
 
   tags = {
-    Name = "allow_all"
+    Name = "all-sshh"
   }
 }
 
@@ -20,7 +20,7 @@ resource "aws_security_group" "allow_all" {
   }
 }
 
-resource "aws_security_group" "example" {
+resource "aws_security_group" "allow_all" {
   # ... other configuration ...
 
   ingress {
