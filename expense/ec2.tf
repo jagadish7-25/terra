@@ -32,3 +32,7 @@ resource "aws_instance" "terra" {
   tags = var.tags 
   
 }
+
+output "public_ip" {
+  value = aws_instance.terra.public_ip
+} 
