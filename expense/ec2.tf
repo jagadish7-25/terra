@@ -26,10 +26,11 @@ resource "aws_security_group" "allow-ssh" {
 
 resource "aws_instance" "terra" {
   ami                     = var.ami_id
-  instance_type           = var.Environment == "prod" ? "t3.micro" : "t2.micro"
+  count = 3
+  instance_type           = var.instance_type
   vpc_security_group_ids = [aws_security_group.allow-ssh.id]
 
-  tags = var.tags 
+  tags = var.instance_names[count.index]
   
 }
 

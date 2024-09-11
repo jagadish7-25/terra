@@ -3,18 +3,13 @@ variable "ami_id" {
       
 }
 
-variable "Environment" {
+variable "instance_type" {
   
 }
-variable "tags" {
-    type = map(string)
-  default     = {
-    Name = "terra"
-    Environment = "dev"
-    project = "expense"
-  }
+variable "instance_names" {
+  type = list(string)
+  
 }
-
 variable "port" {
     type = number
   
