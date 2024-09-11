@@ -15,9 +15,9 @@ variable "port" {
     type = number
   
 }
-# variable "zone_id" {
+variable "zone_id" {
   
-# }
-# variable "domain_name" {
+}
+variable "domain_name" {
   
-# }
+}
