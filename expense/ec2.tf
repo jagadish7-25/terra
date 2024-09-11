@@ -36,5 +36,5 @@ resource "aws_instance" "terra" {
 }
 
 output "public_ip" {
-  value = aws_instance.terra.public_ip
+  value = aws_instance.terra[*].public_ip
 } 
