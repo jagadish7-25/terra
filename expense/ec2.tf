@@ -26,7 +26,7 @@ resource "aws_security_group" "allow-ssh" {
 
 resource "aws_instance" "terra" {
   ami                     = var.ami_id
-  count = 3
+  count = length(var.instance_names)
   instance_type           = var.instance_type
   vpc_security_group_ids = [aws_security_group.allow-ssh.id]
   tags = {
@@ -35,6 +35,6 @@ resource "aws_instance" "terra" {
   
 }
 
-output "public_ip" {
-  value = aws_instance.terra[*].public_ip
+output "instances_info" {
+  value = aws_instance.terra
 } 
