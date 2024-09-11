@@ -3,7 +3,7 @@ variable "ami_id" {
       
 }
 
-variable "inst_type" {
+variable "Environment" {
   
 }
 variable "tags" {
