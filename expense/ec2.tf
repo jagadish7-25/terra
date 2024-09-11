@@ -29,8 +29,9 @@ resource "aws_instance" "terra" {
   count = 3
   instance_type           = var.instance_type
   vpc_security_group_ids = [aws_security_group.allow-ssh.id]
-
-  tags = var.instance_names[count.index]
+  tags = {
+    Name = var.instance_names[count.index]
+  }
   
 }
 
