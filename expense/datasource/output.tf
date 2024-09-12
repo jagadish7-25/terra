@@ -1,3 +1,3 @@
 output "ami_devops" {
-  value = data.aws_ami.tarradevops.id
+  value = data.aws_ami.terradevops.id
 }
