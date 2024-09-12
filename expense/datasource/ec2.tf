@@ -7,3 +7,7 @@ resource "aws_instance" "expense" {
     Name = var.instance_names[count.index]
   }
 }
+
+output "instances_info" {
+  value = aws_instance.expense[*].private_ip
+} 
