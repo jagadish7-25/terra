@@ -1,3 +1,3 @@
-output "ami_devops" {
+output "ami_id" {
   value = data.aws_ami.terradevops.id
 }

@@ -12,4 +12,9 @@ data "aws_ami" "terradevops" {
     values = ["hvm"]
   }
 
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+
 }
