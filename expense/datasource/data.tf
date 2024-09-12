@@ -1,5 +1,6 @@
-data "aws_ami" "devops" {
+data "aws_ami" "terradevops" {
   most_recent = true
+  owners = ["992382427676"]
 
   filter {
     name   = "name"
@@ -11,5 +12,4 @@ data "aws_ami" "devops" {
     values = ["hvm"]
   }
 
-  owners = ["992382427676"] # Canonical
 }
