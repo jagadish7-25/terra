@@ -8,6 +8,5 @@ resource "aws_instance" "web" {
 }
 
 output "publicip" {
-    value = data.aws_ami.data_new.private_ip
-  
+    value = data.aws_instance.web.private_ip
 }
