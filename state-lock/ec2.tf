@@ -6,3 +6,8 @@ resource "aws_instance" "web" {
     Name = "stat-lock"
   }
 }
+
+output "publicip" {
+    value = data.aws_ami.data_new.private_ip
+  
+}
