@@ -5,6 +5,12 @@ terraform {
       version = "~> 5.0"
     }
   }
+   backend "s3" {
+    bucket = "terra-chocojohns"
+    key    = "remote/terra-key"
+    region = "us-east-1"
+    dynamodb_table = "data_lock"
+  }
 }
 
 # Configure the AWS Provider
