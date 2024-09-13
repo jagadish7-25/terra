@@ -9,8 +9,3 @@ variable "instance_names" {
 }
 
 
-variable "dname" {
-    type = string
-    default = "chocojohns.online"
-  
-}
