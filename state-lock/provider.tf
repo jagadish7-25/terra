@@ -6,7 +6,7 @@ terraform {
     }
   }
    backend "s3" {
-    bucket = "terra-chocojohns"
+    bucket = "terra-chcocjohns"
     key    = "remote/terra-key"
     region = "us-east-1"
     dynamodb_table = "data_lock"
