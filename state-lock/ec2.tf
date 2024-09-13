@@ -8,5 +8,5 @@ resource "aws_instance" "web" {
 }
 
 output "publicip" {
-    value = data.aws_instance.web.private_ip
+    value = aws_instance.web.private_ip
 }
