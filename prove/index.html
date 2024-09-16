@@ -3,50 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Animation</title>
+    <title>Simple HTML Game</title>
     <style>
-        /* Set the background color of the page to grey */
-        body {
+        * {
             margin: 0;
-            background-color: grey;
-            overflow: hidden;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        /* Styling the flight (green-colored plane) */
-        .flight {
-            width: 100px;
-            height: 50px;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #eee;
+            font-family: Arial, sans-serif;
+        }
+        #gameArea {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: #fff;
+            border: 2px solid #000;
+        }
+        #player {
             position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            animation: fly 5s linear infinite;
+            width: 40px;
+            height: 40px;
+            background-color: blue;
         }
-
-        /* Flight animation */
-        @keyframes fly {
-            0% {
-                left: -100px; /* Start off-screen */
-            }
-            100% {
-                left: 100vw; /* Move across the screen to the right */
-            }
+        #target {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
         }
-
-        /* Simple green flight shape */
-        .flight::before {
-            content: '';
-            display: block;
-            width: 0;
-            height: 0;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-            border-bottom: 70px solid green; /* The color of the plane */
+        #score {
+            margin-top: 20px;
+            font-size: 20px;
         }
     </style>
 </head>
 <body>
-    <!-- Flight flying across the screen -->
-    <div class="flight"></div>
+
+    <div id="gameArea">
+        <div id="player"></div>
+        <div id="target"></div>
+    </div>
+    <div id="score">Score: 0</div>
+
+    <script>
+        const gameArea = document.getElementById('gameArea');
+        const player = document.getElementById('player');
+        const target = document.getElementById('target');
+        const scoreElement = document.getElementById('score');
+
+        let score = 0;
+        let playerPos = { x: 0, y: 0 };
+        let targetPos = { x: Math.random() * 470, y: Math.random() * 470 };
+
+        // Initial positioning
+        player.style.left = playerPos.x + 'px';
+        player.style.top = playerPos.y + 'px';
+        target.style.left = targetPos.x + 'px';
+        target.style.top = targetPos.y + 'px';
+
+        // Move player
+        window.addEventListener('keydown', (e) => {
+            switch (e.key) {
+                case 'ArrowUp':
+                    playerPos.y = Math.max(0, playerPos.y - 10);
+                    break;
+                case 'ArrowDown':
+                    playerPos.y = Math.min(460, playerPos.y + 10);
+                    break;
+                case 'ArrowLeft':
+                    playerPos.x = Math.max(0, playerPos.x - 10);
+                    break;
+                case 'ArrowRight':
+                    playerPos.x = Math.min(460, playerPos.x + 10);
+                    break;
+            }
+            player.style.left = playerPos.x + 'px';
+            player.style.top = playerPos.y + 'px';
+
+            // Check collision
+            if (checkCollision(playerPos, targetPos)) {
+                score++;
+                scoreElement.innerText = 'Score: ' + score;
+                moveTarget();
+            }
+        });
+
+        // Check collision between player and target
+        function checkCollision(playerPos, targetPos) {
+            return Math.abs(playerPos.x - targetPos.x) < 30 && Math.abs(playerPos.y - targetPos.y) < 30;
+        }
+
+        // Move target to a random position
+        function moveTarget() {
+            targetPos.x = Math.random() * 470;
+            targetPos.y = Math.random() * 470;
+            target.style.left = targetPos.x + 'px';
+            target.style.top = targetPos.y + 'px';
+        }
+    </script>
+
 </body>
 </html>
