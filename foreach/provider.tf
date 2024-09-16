@@ -7,7 +7,7 @@ terraform {
   }
    backend "s3" {
     bucket = "terra-chcocjohns"
-    key    = "foreach-terraform-key"
+    key    = "foreach2-terra-key"
     region = "us-east-1"
     dynamodb_table = "data_lock"
   }
