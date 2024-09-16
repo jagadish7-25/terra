@@ -47,19 +47,20 @@ resource "aws_instance" "terra" {
     host     = self.public_ip
   }
 
+provisioner "file" {
+  source      = "index.html"
+  destination = "/tmp/index.html"
+}
   provisioner "remote-exec" {
     inline = [
        "sudo yum install nginx -y",
-       "sudo systemctl start nginx",
-       " sudo rm -rf /usr/share/nginx/html/index.html"
+       " sudo mv /tmp/index.html /usr/share/nginx/html/index.html",
+       "sudo systemctl restart nginx"
+
        
     ]
   }
-   provisioner "file" {
-    source      = "index.html"
-    destination = "/usr/share/nginx/html/"
-  }
-
+  
 
   
 }
