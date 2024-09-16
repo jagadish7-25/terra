@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Animation</title>
+    <style>
+        /* Set the background color of the page to grey */
+        body {
+            margin: 0;
+            background-color: grey;
+            overflow: hidden;
+        }
+
+        /* Styling the flight (green-colored plane) */
+        .flight {
+            width: 100px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            animation: fly 5s linear infinite;
+        }
+
+        /* Flight animation */
+        @keyframes fly {
+            0% {
+                left: -100px; /* Start off-screen */
+            }
+            100% {
+                left: 100vw; /* Move across the screen to the right */
+            }
+        }
+
+        /* Simple green flight shape */
+        .flight::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 70px solid green; /* The color of the plane */
+        }
+    </style>
+</head>
+<body>
+    <!-- Flight flying across the screen -->
+    <div class="flight"></div>
+</body>
+</html>
