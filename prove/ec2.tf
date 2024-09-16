@@ -51,9 +51,13 @@ resource "aws_instance" "terra" {
     inline = [
        "sudo yum install nginx -y",
        "sudo systemctl start nginx",
-       "sudo rm -rf  /usr/share/nginx/html/*",
-       "sudo cp index.html /usr/share/nginx/html/"
+       " sudo rm -rf /usr/share/nginx/html/index.html"
+       
     ]
+  }
+   provisioner "file" {
+    source      = "index.html"
+    destination = "/usr/share/nginx/html/"
   }
 
 
