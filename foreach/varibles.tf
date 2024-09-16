@@ -6,7 +6,7 @@ variable "ami_id" {
 variable "instances" {
     type = map
     default = {
-        mysql = "t3.micro"
+        mysql = "t2.micro"
         backend = "t2.micro"
         frontend = "t2.micro"
     }
@@ -19,7 +19,9 @@ variable "port" {
   
 }
 
-
+variable "dname" {
+  default = "chocojohns.online"
+}
 
 
 
