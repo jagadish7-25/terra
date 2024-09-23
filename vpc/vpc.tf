@@ -9,12 +9,12 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "main" {
   vpc_id     = aws_vpc.main.id
-  count = length(var.cidr)
-  cidr_block = each.value
-  availability_zone = var.avz[count.index]
+  count = length(var.avz)
+  cidr_block = var.cidr[count.index]
+  availability_zone =var.avz[count.index]
 
   tags = {
-    Name = each.key
+    Name = var.sname[count.index]
   }
 }
 
