@@ -1,6 +1,6 @@
-resource "aws_security_group" "allow-ssh" {
-  name        = ""
-  description = ""
-
+resource "aws_instance" "terra" {
+  ami                     = ""
+  instance_type           = ""
+ 
 
 }
