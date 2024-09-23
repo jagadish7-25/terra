@@ -9,30 +9,12 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "public" {
   vpc_id     = aws_vpc.main.id
-  cidr_block ="172.31.1.0/24"
+  for_each = var.cidr
+  cidr_block = each.value
   availability_zone = "us-east-1a"
 
   tags = {
-    Name = "expense-2-public"
+    Name = each.key
   }
 }
 
-resource "aws_subnet" "private" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block ="172.31.2.0/24"
-  availability_zone = "us-east-1b"
-
-  tags = {
-    Name = "expense-2-private"
-  }
-}
-
-resource "aws_subnet" "database" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block ="172.31.3.0/24"
-  availability_zone = "us-east-1c"
-
-  tags = {
-    Name = "expense-2-database"
-  }
-}
