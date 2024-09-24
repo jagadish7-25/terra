@@ -21,3 +21,6 @@ variable "common_tags" {
 variable "Vpc_tags" {
   default = {}
 }
+variable "igw_tags" {
+  default = {}
+}
