@@ -6,10 +6,10 @@ terraform {
     }
   }
    backend "s3" {
-    bucket = "terra-chcocjohns"
-    key    = "terra-vpc-prj"
+    bucket = "vpc-lock-1225"
+    key    = "vpc-terra-25-key"
     region = "us-east-1"
-    dynamodb_table = "data_lock"
+    dynamodb_table = "vpc_lock"
   }
 }
 
