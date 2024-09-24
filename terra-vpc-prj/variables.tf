@@ -24,3 +24,29 @@ variable "Vpc_tags" {
 variable "igw_tags" {
   default = {}
 }
+variable "pbsubnet_cidrs" {
+  type = list()
+  default = []
+}
+variable "avz" {
+  type = list()
+  default = []
+}
+variable "public_subnet_tags" {
+  default = {}
+}
+variable "prsubnet_cidrs" {
+  type = list()
+  default = []
+}
+variable "private_subnet_tags" {
+  default = {}
+}
+
+variable "data_subnet_cidrs" {
+    type = list
+    description = []
+}
+variable "data_subnet_tags" {
+  default = {}
+}
