@@ -25,18 +25,15 @@ variable "igw_tags" {
   default = {}
 }
 variable "pbsubnet_cidrs" {
-  type = list()
   default = []
 }
 variable "avz" {
-  type = list()
   default = []
 }
 variable "public_subnet_tags" {
   default = {}
 }
 variable "prsubnet_cidrs" {
-  type = list()
   default = []
 }
 variable "private_subnet_tags" {
@@ -44,7 +41,6 @@ variable "private_subnet_tags" {
 }
 
 variable "data_subnet_cidrs" {
-    type = list
     description = []
 }
 variable "data_subnet_tags" {
