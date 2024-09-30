@@ -21,4 +21,4 @@ resource "aws_ssm_parameter" "vpc_id" {
 #   type  = "StringList"
 #   value = join(",", module.vpc.database_subnet_ids)
 # } 
-# these to be modified 
+# these to be modified files
