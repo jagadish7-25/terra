@@ -1,7 +1,7 @@
 module "vpc" {
     #source = "../terraform-aws-vpc"
     source = "git::https://github.com/jagadish7-25/terraform-vpc-expense.git?ref=main"
-    vpc_cidr = var.vpc_cidr
+    cidr_block = var.vpc_cidr
     project_name = var.project_name
     environment = var.environment
     common_tags = var.common_tags
