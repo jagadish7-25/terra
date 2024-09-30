@@ -20,4 +20,5 @@ resource "aws_ssm_parameter" "vpc_id" {
 #   name  = "/${var.project_name}/${var.environment}/database_subnet_ids"
 #   type  = "StringList"
 #   value = join(",", module.vpc.database_subnet_ids)
-# }
+# } 
+# these to be modified 
